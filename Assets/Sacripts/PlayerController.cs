@@ -5,11 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5.0F;
-    private Rigidbody playerRigidBody;
+
+    public float turnSpeed = 5f;
+    
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        playerRigidBody = GetComponent<Rigidbody>();
+        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -19,9 +23,27 @@ public class PlayerController : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
 
     
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        
+        //desactivar la tecla hacia abajo
+        if(moveVertical < 0)
+        {
+            moveVertical = 0;
+        }
 
-        // Aplica el movimiento al Rigidbody
-        playerRigidBody.velocity = movement * moveSpeed;
+        // Calcula el movimiento hacia adelante y atrás
+        Vector3 movement = transform.forward * moveVertical * moveSpeed * Time.deltaTime;
+
+        // Aplica el movimiento al Transform
+        transform.position += movement;
+
+        // Rotar al jugador
+        float turn = moveHorizontal * turnSpeed * Time.deltaTime;
+        transform.Rotate(0, turn, 0);
+
+        // Actualiza el parámetro Speed del Animator
+        animator.SetFloat("Speed", Mathf.Abs(moveVertical));
     }
 }
+
+    
+
