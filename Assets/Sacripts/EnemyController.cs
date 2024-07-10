@@ -50,7 +50,7 @@ public class EnemyController : MonoBehaviour
 
     public void OnPowerValidationEnemy(float delay)
     {
-        GameManager.Instance.ActivateEnemyAfterDelay(gameObject, delay);
+        GameManagerEnemy.Instance.ActivateEnemyAfterDelay(gameObject, delay);
     }
 
     private void OnCollisionEnter(Collision other)
