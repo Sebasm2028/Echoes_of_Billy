@@ -4431,6 +4431,8 @@ MonoBehaviour:
   mainPanel: {fileID: 3451748879359620278}
   optionsPanel: {fileID: 4422532536787112663}
   playPanel: {fileID: 4802883109830843775}
+  playerController: {fileID: 0}
+  cameraFollow: {fileID: 0}
 --- !u!1 &8870574162471477306
 GameObject:
   m_ObjectHideFlags: 0

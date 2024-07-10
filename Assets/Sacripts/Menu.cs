@@ -21,6 +21,10 @@ public class Menu : MonoBehaviour
     public GameObject optionsPanel;
     public GameObject playPanel;
 
+    [Header("References")]
+    public PlayerController playerController; // Nueva referencia al PlayerController
+    public CameraFollow cameraFollow; // Nueva referencia al CameraFollow
+
     private void Awake()
     {
         //Cuando cambia el valor del slider llama la función change 
@@ -66,14 +70,16 @@ public class Menu : MonoBehaviour
     {
         fxSource.PlayOneShot(clickSound);
     }
+
     public void PlayGame()
     {
         ButtonSound();
-        // Cargar el primer nivel del juego directamente
-        SceneManager.LoadScene("Level1");
+        playerController.StartGame(); // Iniciar el juego en el PlayerController
+        cameraFollow.StartGame(); // Iniciar el juego en el CameraFollow
+        mainPanel.SetActive(false); // Ocultar el mainPanel
+        // Si quieres cargar otra escena, descomenta la siguiente línea y comenta las dos líneas anteriores.
+        // SceneManager.LoadScene("SchoolScene");
     }
-
-    
 }
 
 /*public void PlayLevel(string levelName)

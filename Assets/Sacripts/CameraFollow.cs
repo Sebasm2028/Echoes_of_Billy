@@ -5,13 +5,19 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform player; // El transform del jugador a seguir
-    public Vector3 offset; // La diferencia de posiciÛn entre la c·mara y el jugador
-
+    public Vector3 offset; // La diferencia de posici√≥n entre la c√°mara y el jugador
+    private bool isGameStarted = false; // Nueva variable
 
     void LateUpdate()
     {
-        // Actualiza la posiciÛn de la c·mara para seguir al jugador
-        transform.position = player.position + offset;
+        if (!isGameStarted) return; // Si el juego no ha empezado, no hacer nada
 
+        // Actualiza la posici√≥n de la c√°mara para seguir al jugador
+        transform.position = player.position + offset;
+    }
+
+    public void StartGame()
+    {
+        isGameStarted = true; // M√©todo para iniciar el juego
     }
 }
