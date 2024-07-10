@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     {
         if (player != null)
         {
-            // Calcula la dirección hacia el jugador
+            // Calcula la direcciï¿½n hacia el jugador
             Vector3 lookDirection = (player.transform.position - transform.position).normalized;
 
             // Mantener la altura del enemigo
@@ -42,7 +42,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            // Si el jugador no está presente, detener las animaciones
+            // Si el jugador no estï¿½ presente, detener las animaciones
             animator.SetFloat("Speed", 0f);
         }
 
@@ -51,5 +51,13 @@ public class EnemyController : MonoBehaviour
     public void OnPowerValidationEnemy(float delay)
     {
         GameManager.Instance.ActivateEnemyAfterDelay(gameObject, delay);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            GameManager.Instance.LoseLive();
+        }
     }
 }

@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
             moveVertical = 0;
         }
 
-        // Calcula el movimiento hacia adelante y atr·s
+        // Calcula el movimiento hacia adelante y atr√°s
         Vector3 movement = transform.forward * moveVertical * moveSpeed * Time.deltaTime;
 
         // Aplica el movimiento al Transform
@@ -40,10 +40,8 @@ public class PlayerController : MonoBehaviour
         float turn = moveHorizontal * turnSpeed * Time.deltaTime;
         transform.Rotate(0, turn, 0);
 
-        // Actualiza el par·metro Speed del Animator
+        // Actualiza el par√°metro Speed del Animator
         animator.SetFloat("Speed", Mathf.Abs(moveVertical));
     }
 }
-
-    
 
