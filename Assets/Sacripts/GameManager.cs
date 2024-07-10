@@ -28,10 +28,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ActivationCoroutine(GameObject enemy, float delay)
     {
-        Debug.Log("Enemy deactivated");
         enemy.SetActive(false);
         yield return new WaitForSeconds(delay);
-        Debug.Log("Enemy activated");
         enemy.SetActive(true);
     }
 }
