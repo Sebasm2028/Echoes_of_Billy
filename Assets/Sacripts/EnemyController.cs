@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody enemyRB;
     private GameObject player;
     private Animator animator;
+    public bool isEnemyOff = false;
 
     // Start is called before the first frame update
     void Start()
@@ -44,5 +45,11 @@ public class EnemyController : MonoBehaviour
             // Si el jugador no está presente, detener las animaciones
             animator.SetFloat("Speed", 0f);
         }
+
+    }
+
+    public void OnPowerValidationEnemy(float delay)
+    {
+        GameManager.Instance.ActivateEnemyAfterDelay(gameObject, delay);
     }
 }
