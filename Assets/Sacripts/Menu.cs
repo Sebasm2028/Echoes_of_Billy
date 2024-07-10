@@ -23,13 +23,20 @@ public class Menu : MonoBehaviour
 
     [Header("References")]
     public PlayerController playerController; // Nueva referencia al PlayerController
-    public CameraFollow cameraFollow; // Nueva referencia al CameraFollow
+    //public CameraFollow cameraFollow; // Nueva referencia al CameraFollow
 
     private void Awake()
     {
-        //Cuando cambia el valor del slider llama la función change 
+        // Cuando cambia el valor del slider llama la función change 
         masterVolumen.onValueChanged.AddListener(ChangeMasterVolume);
         fxVolume.onValueChanged.AddListener(ChangeFxVolume);
+    }
+
+    private void Start()
+    {
+        // Pausar el juego al inicio
+        Time.timeScale = 0f;
+        OpenPanel(mainPanel);
     }
 
     public void OpenPanel(GameObject panel)
@@ -42,7 +49,7 @@ public class Menu : MonoBehaviour
         ButtonSound();
     }
 
-    //Setea los valores que el usuario desea
+    // Setea los valores que el usuario desea
     public void ChangeMasterVolume(float v)
     {
         mixer.SetFloat("MasterVolume", v);
@@ -56,7 +63,7 @@ public class Menu : MonoBehaviour
     public void SetMute()
     {
         if (mute.isOn)
-        {//si está muteado 
+        {// Si está muteado 
             mixer.GetFloat("MasterVolume", out lastVolume);
             mixer.SetFloat("MasterVolume", -80);
         }
@@ -74,13 +81,15 @@ public class Menu : MonoBehaviour
     public void PlayGame()
     {
         ButtonSound();
-        playerController.StartGame(); // Iniciar el juego en el PlayerController
-        cameraFollow.StartGame(); // Iniciar el juego en el CameraFollow
+        Time.timeScale = 1f; // Reanudar el juego
+        //playerController.StartGame(); // Iniciar el juego en el PlayerController
+        //cameraFollow.StartGame(); // Iniciar el juego en el CameraFollow
         mainPanel.SetActive(false); // Ocultar el mainPanel
         // Si quieres cargar otra escena, descomenta la siguiente línea y comenta las dos líneas anteriores.
         // SceneManager.LoadScene("SchoolScene");
     }
 }
+
 
 /*public void PlayLevel(string levelName)
     {
