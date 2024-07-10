@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161123468a2ba914d95abf45e8b05bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartPanel: {fileID: 0}
-  gameOverPanel: {fileID: 0}
+  heartPanel: {fileID: 7659457937372984350, guid: ea01dddbc6c74df4c8c9c186e97214ac, type: 3}
+  gameOverPanel: {fileID: 6959608646130958289, guid: d457fb2f9b8c3c841be818d966a65f65, type: 3}

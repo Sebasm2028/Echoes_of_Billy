@@ -4298,7 +4298,7 @@ MonoBehaviour:
   fxVolume: {fileID: 6435217838771991494}
   mute: {fileID: 4466559443966047372}
   mixer: {fileID: 24100000, guid: 63ae22429e8eab140b9b2ad72d1637e4, type: 2}
-  fxSource: {fileID: 0}
+  fxSource: {fileID: 5147401825168767361}
   clickSound: {fileID: 8300000, guid: 881cb6cc1371b2d4cb0c3e109ab1dd11, type: 3}
   mainPanel: {fileID: 3451748879359620278}
   optionsPanel: {fileID: 4422532536787112663}
