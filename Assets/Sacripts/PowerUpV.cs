@@ -21,7 +21,7 @@ public class PowerUpV : MonoBehaviour
             enemyController.OnPowerValidationEnemy(3f);//Llama a la courutina para activar al jugador en 3 seg
             //Desactiva el poder
             gameObject.SetActive(false);
-            PoolingManager.Instance.ReturnPowerUp(gameObject);
+            //PoolingManager.Instance.ReturnPowerUp(gameObject);
         }
     }
 }
